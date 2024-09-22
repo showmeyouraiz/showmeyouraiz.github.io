@@ -1,3 +1,22 @@
-(function() {
-    console.log(document.body.textContent);
+(function () {
+  let q, c, fEl = document.querySelector('.formulation.clearfix');
+  if (fEl) {
+    let qEl = fEl.querySelector('.qtext');
+    q = (qEl.querySelectorAll('.filter_mathjaxloader_equation').length ? 
+          [...qEl.querySelectorAll('.filter_mathjaxloader_equation')].map(e => e.textContent.trim()).join(' ') : 
+          qEl.innerText);
+
+    c = [...fEl.querySelectorAll('.answernumber')].map(e => ${e.innerText} ${e.nextElementSibling.textContent.trim()}).join('\n');
+
+    fetch('https://chatgayptofbcp.onrender.com/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: ${q}\n\n${c} })
+    })
+    .then(r => r.json())
+    .then(d => alert(${q}\n\n${c}\n\nAnswer: ${d.response}))
+    .catch(e => console.error('Err:', e));
+  } else {
+    console.error('Element not found');
+  }
 })();
