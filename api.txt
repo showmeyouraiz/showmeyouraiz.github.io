@@ -1,1 +1,1 @@
-https://bengcpofchatgpt.onrender.com/api/chat
+https://newbcpchatgpt.onrender.com/api/chat
