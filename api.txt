@@ -1,1 +1,1 @@
-https://gpt.m18ph.com/api/chat
+https://newbcpchatgpt.onrender.com/api/chat
